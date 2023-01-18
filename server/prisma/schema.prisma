@@ -1,0 +1,23 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Suporta vários BDs: Mongo, Cockroach, SQL, etc...
+// Como a "tabela" de cada um deles tem um nome diferente então usamos model que é mais genérico
+model Habit {
+  // O @default(uuid()) faz com que gere um código único para cada informação.
+  id         String   @id @default(uuid())
+  title      String
+  created_at DateTime
+
+  // Define o nome que a tabela terá no BD
+  @@map("habits")
+}
