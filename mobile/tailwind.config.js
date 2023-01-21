@@ -12,6 +12,15 @@ module.exports = {
         bold: 'Inter_700Bold',
         extrabold: 'Inter_800ExtraBold',
       },
+      animation: {
+        'width-change': 'widthChange 3s linear infinite',
+      },
+      keyframes: {
+        widthChange: {
+          from: { width: '0%' },
+          to: { width: '100%' },
+        },
+      },
     },
   },
   plugins: [],
